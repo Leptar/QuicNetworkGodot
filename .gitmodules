@@ -5,6 +5,8 @@
 [submodule "thirdparty/boringssl"]
 	path = thirdparty/boringssl
 	url = https://github.com/google/boringssl.git
+	ignore = untracked
 [submodule "thirdparty/ngtcp2"]
 	path = thirdparty/ngtcp2
 	url = https://github.com/ngtcp2/ngtcp2.git
+	ignore = untracked
