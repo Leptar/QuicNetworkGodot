@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dss7pn8rxntmp"]
+
+[ext_resource type="Script" uid="uid://bji8qr1b8tt7c" path="res://Scenes/ui/main_menu.gd" id="1_c2fhx"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=243925601]
+script = ExtResource("1_c2fhx")
+
+[node name="Control" type="Control" parent="." unique_id=1923030829]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="PanelContainer" parent="Control" unique_id=1423117607]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/Center" unique_id=2031446871]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Center/MarginContainer" unique_id=1955390409]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=992317694]
+layout_mode = 2
+text = "Godot Multiplayer test"
+
+[node name="IP" type="LineEdit" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1190879199]
+layout_mode = 2
+placeholder_text = "Enter IP"
+
+[node name="Port" type="LineEdit" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1025316460]
+layout_mode = 2
+placeholder_text = "Enter Port"
+
+[node name="ButtonJoin" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=1443732482]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Join"
+
+[node name="ButtonHost" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=592281935]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Host"
+
+[node name="ButtonQuit" type="Button" parent="Control/Center/MarginContainer/VBoxContainer" unique_id=834414676]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="NetworkProberUI" type="CanvasLayer" parent="." unique_id=1257055097]
+unique_name_in_owner = true
+visible = false
+
+[node name="Center2" type="PanelContainer" parent="NetworkProberUI" unique_id=681575137]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -146.0
+offset_bottom = 117.0
+grow_horizontal = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="NetworkProberUI/Center2" unique_id=453324948]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NetworkProberUI/Center2/MarginContainer" unique_id=823109767]
+layout_mode = 2
+
+[node name="RTT" type="Label" parent="NetworkProberUI/Center2/MarginContainer/VBoxContainer" unique_id=875297795]
+unique_name_in_owner = true
+layout_mode = 2
+text = "rtt"
+
+[node name="SRTT" type="Label" parent="NetworkProberUI/Center2/MarginContainer/VBoxContainer" unique_id=427987344]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Smoothed rtt"
+
+[node name="Jitter" type="Label" parent="NetworkProberUI/Center2/MarginContainer/VBoxContainer" unique_id=687598060]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Jitter"

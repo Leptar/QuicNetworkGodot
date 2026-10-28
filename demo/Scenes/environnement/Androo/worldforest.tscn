@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://8xvcm3go1si3"]
+
+[ext_resource type="Texture2D" uid="uid://mt5a62et11hb" path="res://Assets/kenney_prototype-textures/Vector/texture_02.svg" id="1_8qc45"]
+[ext_resource type="Script" uid="uid://dlflh2mqpgab1" path="res://Scenes/environnement/Androo/worldforest.gd" id="1_o1vdo"]
+[ext_resource type="Texture2D" uid="uid://day2kigpwgji0" path="res://Assets/kenney_prototype-textures/PNG/Green/texture_08.png" id="2_o1vdo"]
+[ext_resource type="PackedScene" uid="uid://xdlalboxmbew" path="res://Scenes/environnement/Androo/Ball.tscn" id="5_a38ya"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tmfih"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tmfih"]
+albedo_texture = ExtResource("1_8qc45")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_k1co8"]
+material = SubResource("StandardMaterial3D_tmfih")
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qc45"]
+albedo_texture = ExtResource("2_o1vdo")
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_k1co8"]
+material = SubResource("StandardMaterial3D_8qc45")
+height = 5.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o1vdo"]
+height = 5.0
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o1vdo"]
+
+[sub_resource type="Sky" id="Sky_8qc45"]
+sky_material = SubResource("ProceduralSkyMaterial_o1vdo")
+
+[sub_resource type="Environment" id="Environment_8qc45"]
+background_mode = 2
+sky = SubResource("Sky_8qc45")
+
+[node name="Worldforest" type="Node3D" unique_id=494759008]
+script = ExtResource("1_o1vdo")
+
+[node name="floor" type="StaticBody3D" parent="." unique_id=573426853]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor" unique_id=1645949626]
+shape = SubResource("WorldBoundaryShape3D_tmfih")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor" unique_id=1730740024]
+mesh = SubResource("PlaneMesh_k1co8")
+
+[node name="tree" type="StaticBody3D" parent="." unique_id=2079998509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tree" unique_id=1406226953]
+mesh = SubResource("CylinderMesh_k1co8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree" unique_id=1675848325]
+shape = SubResource("CylinderShape3D_o1vdo")
+
+[node name="tree2" type="StaticBody3D" parent="." unique_id=1820996907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9282122, 2.5, -5.208047)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tree2" unique_id=420623978]
+mesh = SubResource("CylinderMesh_k1co8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree2" unique_id=21595733]
+shape = SubResource("CylinderShape3D_o1vdo")
+
+[node name="tree3" type="StaticBody3D" parent="." unique_id=207051665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.473212, 2.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="tree3" unique_id=1558989758]
+mesh = SubResource("CylinderMesh_k1co8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="tree3" unique_id=1692138893]
+shape = SubResource("CylinderShape3D_o1vdo")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1811019376]
+transform = Transform3D(0.9016045, -0.1949347, 0.38614753, 0.02773076, 0.9169113, 0.3981267, -0.43167168, -0.34824464, 0.83209693, 0.997538, 3.810779, 7.2765684)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1912174199]
+environment = SubResource("Environment_8qc45")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=935472488]
+transform = Transform3D(0.85262775, 0.40568846, 0.32930654, 0, -0.63022906, 0.77640927, 0.5225188, -0.6619881, -0.5373508, 0, 11.498554, -7.7796907)
+shadow_enabled = true
+
+[node name="SpawnContainer" type="Node3D" parent="." unique_id=390613322]
+unique_name_in_owner = true
+
+[node name="CustomMultiplayerSpawner" type="CustomMultiplayerSpawner" parent="." unique_id=256562461]
+spawn_path = NodePath("../SpawnContainer")
+spawnable_scenes = Array[PackedScene]([ExtResource("5_a38ya")])

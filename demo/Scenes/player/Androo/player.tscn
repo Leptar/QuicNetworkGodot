@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://n10r0frmosww"]
+
+[ext_resource type="Texture2D" uid="uid://dor0le0cqnqls" path="res://Assets/kenney_prototype-textures/PNG/Purple/texture_07.png" id="1_8p05u"]
+[ext_resource type="Script" uid="uid://bvrvpor8fv4qo" path="res://Scenes/player/Androo/player.gd" id="1_eo61r"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kf5c0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e41v5"]
+albedo_texture = ExtResource("1_8p05u")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8p05u"]
+material = SubResource("StandardMaterial3D_e41v5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mxepk"]
+albedo_texture = ExtResource("1_8p05u")
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eo61r"]
+material = SubResource("StandardMaterial3D_mxepk")
+top_radius = 0.1
+bottom_radius = 0.3
+height = 0.5
+
+[node name="Player" type="CharacterBody3D" unique_id=493642287]
+collision_layer = 9
+script = ExtResource("1_eo61r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=540706770]
+shape = SubResource("CapsuleShape3D_kf5c0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1561553565]
+mesh = SubResource("CapsuleMesh_8p05u")
+
+[node name="Head" type="Node3D" parent="." unique_id=38283475]
+unique_name_in_owner = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head" unique_id=1161256853]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.5, -0.5)
+mesh = SubResource("CylinderMesh_eo61r")
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1910420863]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
+
+[node name="nameplate" type="Label3D" parent="." unique_id=1390676325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2173955, 0)
+billboard = 2
+fixed_size = true
+text = "Peer ID"
+font_size = 24
+outline_size = 8
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=294934813]
+
+[node name="Menu" type="Control" parent="CanvasLayer" unique_id=536648545]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Menu" unique_id=443391750]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Menu/PanelContainer" unique_id=1752011861]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ButtonLeave" type="Button" parent="CanvasLayer/Menu/PanelContainer/MarginContainer" unique_id=199009728]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Leave Game"
+
+[node name="CustomMultiplayerSynchronizer" type="CustomMultiplayerSynchronizer" parent="." unique_id=90581199]
+sync_properties = Array[String](["position", "Head:rotation"])

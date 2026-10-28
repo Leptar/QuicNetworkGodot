@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://xdlalboxmbew"]
+
+[ext_resource type="Texture2D" uid="uid://dte4otv1yyttf" path="res://Assets/kenney_prototype-textures/PNG/Red/texture_03.png" id="1_owtkj"]
+[ext_resource type="Script" uid="uid://hoa4a0gxvcyt" path="res://Scenes/environnement/Androo/ball.gd" id="1_uosmp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uosmp"]
+albedo_texture = ExtResource("1_owtkj")
+
+[sub_resource type="SphereMesh" id="SphereMesh_owtkj"]
+material = SubResource("StandardMaterial3D_uosmp")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m84ky"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xtwys"]
+radius = 0.6
+
+[node name="Ball" type="RigidBody3D" unique_id=632685060]
+collision_layer = 0
+script = ExtResource("1_uosmp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2049718906]
+mesh = SubResource("SphereMesh_owtkj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=45681561]
+shape = SubResource("SphereShape3D_m84ky")
+
+[node name="Authority" type="Label3D" parent="." unique_id=580749965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.74608064, 0)
+billboard = 2
+text = "1"
+font_size = 24
+outline_size = 8
+
+[node name="Area3D" type="Area3D" parent="." unique_id=764979693]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1975614137]
+shape = SubResource("SphereShape3D_xtwys")
+
+[node name="CustomMultiplayerSynchronizer" type="CustomMultiplayerSynchronizer" parent="." unique_id=1233492679]

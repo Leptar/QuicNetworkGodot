@@ -1,0 +1,45 @@
+# ==========================================
+# C++ / SCons Build Artifacts
+# ==========================================
+*.obj
+*.o
+*.os
+*.lib
+*.a
+*.exp
+*.pdb
+*.ilk
+.sconsign.dblite
+compile_commands.json
+vc140.pdb
+
+# ==========================================
+# Godot & GDExtension
+# ==========================================
+demo/.godot/
+demo/bin/
+extension_api.json
+*.pck
+*.tmp
+
+# ==========================================
+# Build & Export Folders
+# ==========================================
+Build/
+Builds/
+Export/
+
+# ==========================================
+# Certificats (si générés localement pour QUIC)
+# ==========================================
+certs/
+
+# ==========================================
+# IDEs (Rider, CLion, Visual Studio, VSCode)
+# ==========================================
+.idea/
+.vs/
+.vscode/
+*.sln
+*.vcxproj
+*.vcxproj.user

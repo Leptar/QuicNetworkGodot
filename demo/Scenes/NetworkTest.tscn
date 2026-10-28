@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cativafk6vq7r"]
+
+[ext_resource type="Script" uid="uid://cj64sytbv3iyn" path="res://Scenes/network_test.gd" id="1_wt6tw"]
+
+[node name="NetworkTest" type="Node2D" unique_id=932241513]
+script = ExtResource("1_wt6tw")
