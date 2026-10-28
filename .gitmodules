@@ -1,0 +1,10 @@
+[submodule "godot-cpp"]
+	path = godot-cpp
+	url = https://github.com/godotengine/godot-cpp
+	branch = 4.5
+[submodule "thirdparty/boringssl"]
+	path = thirdparty/boringssl
+	url = https://github.com/google/boringssl.git
+[submodule "thirdparty/ngtcp2"]
+	path = thirdparty/ngtcp2
+	url = https://github.com/ngtcp2/ngtcp2.git
